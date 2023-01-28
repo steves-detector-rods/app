@@ -1,3 +1,103 @@
 {
-  "extends": "next/core-web-vitals"
+	"parser": "@typescript-eslint/parser",
+	"plugins": ["@typescript-eslint", "sonarjs", "import"],
+	"extends": [
+		"airbnb-typescript",
+		"airbnb/hooks",
+		"plugin:react/recommended",
+		"plugin:sonarjs/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"prettier"
+	],
+	"env": { "es6": true, "browser": true, "node": true },
+	"settings": { "react": { "version": "detect" } },
+	"parserOptions": {
+		"project": "./tsconfig.eslint.json"
+	},
+	"rules": {
+		"import/prefer-default-export": "off",
+		"import/no-default-export": "error",
+		"eol-last": ["error", "always"],
+		"react/react-in-jsx-scope": "off",
+		"no-restricted-globals": "off",
+		"no-unreachable": "error",
+		"object-curly-newline": "off",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1
+			}
+		],
+		"no-console": [
+			"error",
+			{
+				"allow": ["warn", "error"]
+			}
+		],
+		"max-len": [
+			1,
+			120,
+			2,
+			{
+				"ignorePattern": "^import|export\\s.+\\sfrom\\s.+;$",
+				"ignoreUrls": true
+			}
+		],
+		"@typescript-eslint/no-use-before-define": [
+			"warn",
+			{
+				"functions": false,
+				"typedefs": false
+			}
+		],
+		"react/jsx-key": ["error", { "checkFragmentShorthand": true }],
+		"react/jsx-props-no-spreading": "off",
+		"react/prop-types": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"@typescript-eslint/no-explicit-any": "error",
+		"react/require-default-props": "off",
+		"no-restricted-syntax": [
+			"error",
+			{
+				"selector": "LabeledStatement",
+				"message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+			},
+			{
+				"selector": "WithStatement",
+				"message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+			}
+		],
+		"sonarjs/cognitive-complexity": ["error"],
+		"complexity": [2, 8],
+		"arrow-body-style": "off"
+	},
+	"overrides": [
+		{
+			"files": ["src/pages/**/*.ts"],
+			"rules": {
+				"import/no-default-export": "off",
+				"react/display-name": "off"
+			}
+		},
+		{
+			"files": ["*.tsx", "use*.ts"],
+			"rules": {
+				"import/order": [
+					"error",
+					{
+						"groups": ["builtin", "external", "internal"],
+						"pathGroups": [{ "pattern": "react", "group": "external", "position": "before" }],
+						"pathGroupsExcludedImportTypes": ["react"],
+						"alphabetize": { "order": "asc", "caseInsensitive": true }
+					}
+				]
+			}
+		}
+	]
 }

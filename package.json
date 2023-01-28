@@ -1,28 +1,40 @@
 {
-  "name": "app",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@next/font": "13.1.2",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.26",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.32.0",
-    "eslint-config-next": "13.1.2",
-    "next": "13.1.2",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "4.9.4"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.4"
-  }
+	"name": "app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "eslint . --quiet --ext ts --ext tsx --ext js",
+		"lint:fix": "eslint . --fix --quiet --ext ts --ext tsx --ext js",
+		"tsc": "tsc --pretty --noEmit",
+		"format": "prettier --write ."
+	},
+	"dependencies": {
+		"@next/font": "13.1.2",
+		"@react-aria/button": "^3.6.4",
+		"@types/node": "18.11.18",
+		"@types/react": "18.0.26",
+		"@types/react-dom": "18.0.10",
+		"eslint": "^8.32.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-typescript": "^17.0.0",
+		"eslint-config-next": "13.1.2",
+		"eslint-config-prettier": "^8.6.0",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-react": "^7.32.1",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-sonarjs": "^0.18.0",
+		"next": "13.1.2",
+		"prettier": "^2.8.3",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"typescript": "4.9.4"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.21",
+		"tailwindcss": "^3.2.4"
+	}
 }
