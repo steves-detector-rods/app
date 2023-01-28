@@ -8,10 +8,19 @@
 		"plugin:sonarjs/recommended",
 		"plugin:import/errors",
 		"plugin:import/warnings",
+		"plugin:import/typescript",
 		"prettier"
 	],
 	"env": { "es6": true, "browser": true, "node": true },
-	"settings": { "react": { "version": "detect" } },
+	"settings": {
+		"react": { "version": "detect" },
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {}
+		}
+	},
 	"parserOptions": {
 		"project": "./tsconfig.eslint.json"
 	},
