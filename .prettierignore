@@ -4,5 +4,3 @@ package-lock.json
 public/fonts
 public/images
 README.md
-./tsconfig.eslint.json
-./tsconfig.json
