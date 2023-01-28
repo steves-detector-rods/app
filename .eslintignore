@@ -2,3 +2,4 @@
 **/.next/*
 public/
 ./tsconfig.eslint.json
+./tsconfig.json
