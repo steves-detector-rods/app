@@ -1,13 +1,11 @@
 import { ReactNode } from 'react';
-import Header from 'components/navigation/header';
-import SubNav from 'components/navigation/sub-nav/sub-nav';
+import TopNav from 'components/navigation/top-nav';
 
 export default function Template({ children }: { children: ReactNode }) {
 	return (
-		<div>
-			<Header />
-			<SubNav />
-			<div className="px-4 lg:px-32 xl:px-64 py-4">{children}</div>
+		<div className="flex flex-col w-full items-center">
+			<TopNav />
+			<div className="w-full max-w-6xl px-4 py-4">{children}</div>
 		</div>
 	);
 }
