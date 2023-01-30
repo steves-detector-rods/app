@@ -28,3 +28,6 @@ jobs:
         with:
           eslint: true
           prettier: true
+
+      - name: Run tsc
+        run: npm run tsc
