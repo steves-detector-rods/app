@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function About() {
 	return (
-		<main className="space-y-4">
+		<main className="space-y-1 sm:space-y-2">
 			<h1 className="uppercase text-gray-600 font-medium text-xl">About Us</h1>
 			<div>
 				<Image
