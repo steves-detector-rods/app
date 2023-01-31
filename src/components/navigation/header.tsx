@@ -3,7 +3,7 @@ import { HiBars3 } from 'react-icons/hi2';
 
 export default function Header({ onHamburgerClick = () => {} }: { onHamburgerClick?: () => void }) {
 	return (
-		<div className="justify-center w-full max-w-6xl px-4 py-4">
+		<div className="justify-center w-full max-w-6xl px-4 py-4 border-b-2 sm:border-b-0">
 			<div className="flex flex-row items-center space-x-2 sm:space-x-0">
 				<button className="inline sm:hidden" onClick={onHamburgerClick}>
 					<HiBars3 className="h-7 w-7" />
