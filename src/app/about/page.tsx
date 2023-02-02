@@ -1,10 +1,12 @@
 import Image from 'next/image';
+import InlineLink from 'app/components/runway/inline-link';
+import PageHeader from 'app/components/runway/page-header';
 
 export default function About() {
 	return (
-		<main className="space-y-1 sm:space-y-2">
-			<h1 className="uppercase text-gray-600 font-medium text-xl">About Us</h1>
-			<div>
+		<main>
+			<PageHeader>About Us</PageHeader>
+			<div className="mt-1 sm:mt-2">
 				<Image
 					src="/steve-solo-shot.jpeg"
 					alt="Steve, owner of Steve's Detector Rods"
@@ -24,14 +26,9 @@ export default function About() {
 
 					<p className="text-md sm:text-lg lg:text-xl">
 						After purchasing a{' '}
-						<a
-							href="https://www.minelab.com/usa/metal-detectors/ctx-3030"
-							target="_blank"
-							rel="noreferrer"
-							className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 2s"
-						>
+						<InlineLink href="https://www.minelab.com/usa/metal-detectors/ctx-3030" target="_blank" rel="noreferrer">
 							Minelab CTX 3030
-						</a>{' '}
+						</InlineLink>{' '}
 						in the fall of 2017, which came packaged with a couple of extra accessory coils, my intent (carried over
 						from my years of running Explorers) was to purchase a couple of spare lower rods. However, after discovering
 						the high cost of lower rods for the CTX, I decided I could not justify the expense of the &quot;convenience
@@ -57,24 +54,18 @@ export default function About() {
 					<p className="text-md sm:text-lg lg:text-xl">
 						However, to begin producing the rods in greater quantity for sale purposes, additional research was
 						required. The research included exploring and discussing{' '}
-						<a
+						<InlineLink
 							href="https://www.3m.com/3M/en_US/bonding-and-assembly-us/structural-adhesives/"
 							target="_blank"
 							rel="noreferrer"
-							className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 2s"
 						>
 							appropriate adhesives
-						</a>{' '}
+						</InlineLink>{' '}
 						with the engineers/technical support staffs at several international adhesives manufacturers, as well as
 						investigating suppliers of carbon-fiber tubes, and fabricators of{' '}
-						<a
-							href="https://www.dupont.com/delrin.html"
-							target="_blank"
-							rel="noreferrer"
-							className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 2s"
-						>
+						<InlineLink href="https://www.dupont.com/delrin.html" target="_blank" rel="noreferrer">
 							engineering-grade plastic
-						</a>{' '}
+						</InlineLink>{' '}
 						components. Eventually, I was able to form relationships with producers/fabricators, and procure an ongoing
 						supply of all the parts and materials needed to successfully assemble successive, small batches of these
 						hand-made, custom rods.
@@ -82,14 +73,9 @@ export default function About() {
 
 					<p className="text-md sm:text-lg lg:text-xl">
 						After initially producing only the CTX 3030 lower rods, my purchase of a{' '}
-						<a
-							href="https://www.minelab.com/usa/metal-detectors/equinox-800"
-							target="_blank"
-							rel="noreferrer"
-							className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 2s"
-						>
+						<InlineLink href="https://www.minelab.com/usa/metal-detectors/equinox-800" target="_blank" rel="noreferrer">
 							Minelab Equinox 800
-						</a>{' '}
+						</InlineLink>{' '}
 						in the spring of 2018 eventually led me to begin experimenting with the idea of producing lower rods for the
 						Equinox, as well. After a couple of months of design work, I began producing and selling Equinox
 						carbon-fiber lower rods, right around the time (fortuitously) that Minelab began selling their accessory
