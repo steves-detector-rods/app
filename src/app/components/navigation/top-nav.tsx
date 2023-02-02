@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
-import Header from 'components/navigation/header';
-import SubNav from 'components/navigation/sub-nav/sub-nav';
+import Header from 'app/components/navigation/header';
+import SubNav from 'app/components/navigation/sub-nav/sub-nav';
 
 export default function TopNav() {
 	const [isNavOpen, setIsNavOpen] = useState<boolean>(false);
