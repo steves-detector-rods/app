@@ -12,6 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
+		"@headlessui/react": "^1.7.8",
 		"@next/font": "13.1.2",
 		"@react-aria/button": "^3.6.4",
 		"@types/node": "18.11.18",
