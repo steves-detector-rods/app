@@ -5,10 +5,7 @@ export default function Head() {
 		<>
 			<DefaultHead />
 			<title>Steve&apos;s Detector Rods | FAQ</title>
-			<meta
-				name="description"
-				content="Steve's Detector Rods is ran by a detectorist, for detectorists. Learn about us and our mission here"
-			/>
+			<meta name="description" content="Questions? We have answers" />
 		</>
 	);
 }
