@@ -55,7 +55,7 @@ const frequentlyAskedQuestions = {
 		content: (
 			<p>
 				Here at Steve&apos;s Detector Rods, a <b>standard</b> shaft, is one that is capped at the &quot;arm-cuff
-				end&quot; or &quot;butt-end&quot; of the shaft by a simple, snap-in plastic end cap. Meanwhile, a
+				end&quot; or &quot;butt-end&quot; of the shaft by a simple, snap-in plastic end cap. Meanwhile, a{' '}
 				<b>counterweight-ready</b> shaft is identical to a standard shaft, <i>except that</i> the counterweight-ready
 				model includes the installation of a threaded fitting at the &quot;butt end,&quot; and is then capped by a
 				screw-in end cap. This threaded fitting is what enables attachment of the optional counterweight system that is
@@ -428,7 +428,7 @@ const frequentlyAskedQuestions = {
 
 export default function FrequentlyAskedQuestionsAccordion() {
 	return (
-		<div className="flex flex-col mt-4 space-y-2">
+		<div className="flex flex-col mt-4">
 			{Object.entries(frequentlyAskedQuestions).map(([key, faq]) => (
 				<AccordionItem key={key} title={faq.title} content={faq.content} />
 			))}
