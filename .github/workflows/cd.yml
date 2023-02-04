@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  run-linters:
+  RunLinters:
     name: Run linters
     runs-on: ubuntu-latest
 
