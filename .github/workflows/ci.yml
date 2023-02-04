@@ -50,3 +50,15 @@ jobs:
         run: vercel build --token=${{ secrets.VERCEL_TOKEN }}
       - name: Deploy Project Artifacts to Vercel
         run: vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }}
+
+      - uses: aaimio/vercel-preview-url-action@v2.0.0
+        id: vercel_preview_url
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: garrettjoecox/pr-section@main
+        if: ${{ github.event_name == 'pull_request' }}
+        with:
+          repo-token: '${{ secrets.GITHUB_TOKEN }}'
+          section-name: 'pr-preview-url'
+          section-value: '[Preview URL](${{ steps.vercel_preview_url.outputs.vercel_preview_url }}'
