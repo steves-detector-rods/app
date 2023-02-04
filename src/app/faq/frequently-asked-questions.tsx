@@ -1,4 +1,4 @@
-import InlineLink from 'app/components/runway/inline-link';
+import InlineLink from 'src/app/components/runway/inline-link';
 import AccordionItem from './accordion-item';
 
 const frequentlyAskedQuestions = {

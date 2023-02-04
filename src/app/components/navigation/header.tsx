@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import { HiBars3 } from 'react-icons/hi2';
 import { useSubNavContext } from './sub-nav/sub-nav-context-provider';
-// eslint-disable-next-line import/no-unresolved
 import logoLong from '/public/logo-long.png';
 
 export default function Header() {

@@ -1,4 +1,4 @@
-import DefaultHead from 'app/default-head';
+import DefaultHead from 'src/app/default-head';
 
 export default function Head() {
 	return (

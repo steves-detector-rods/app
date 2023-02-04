@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { MdClose } from 'react-icons/md';
-import { clsx } from 'utils/clsx';
+import { clsx } from 'src/app/utils/clsx';
 import { useSubNavContext } from './sub-nav-context-provider';
 import SubNavItem from './sub-nav-item';
 

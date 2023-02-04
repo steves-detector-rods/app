@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import InlineLink from 'app/components/runway/inline-link';
-import PageHeader from 'app/components/runway/page-header';
+import InlineLink from 'src/app/components/runway/inline-link';
+import PageHeader from 'src/app/components/runway/page-header';
 
 export default function About() {
 	return (
