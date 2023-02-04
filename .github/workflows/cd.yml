@@ -35,7 +35,7 @@ jobs:
           eslint: true
           prettier: true
 
-  Deploy-Production:
+  DeployProduction:
     name: Deploy to Production
     runs-on: ubuntu-latest
     steps:
