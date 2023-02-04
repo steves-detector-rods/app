@@ -1,6 +1,6 @@
 # App
 
-This repository serves as the main repo for the Steve's Detector Rods eCommerce Website
+This repository serves as the main repo for the Steve's Detector Rods eCommerce Website (v2)
 
 ## Running Next.JS Locally
 
