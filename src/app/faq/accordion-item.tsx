@@ -17,8 +17,12 @@ export default function AccordionItem({ title, content }: { title: ReactNode; co
 								'text-lg text-left font-medium ',
 							)}
 						>
-							{title}
-							{open ? <MdRemoveCircleOutline className="w-6 h-6" /> : <MdAddCircleOutline className="w-6 h-6" />}
+							<span>{title}</span>
+							{open ? (
+								<MdRemoveCircleOutline className="w-6 h-6 shrink-0 ml-4" />
+							) : (
+								<MdAddCircleOutline className="w-6 h-6 shrink-0 ml-4" />
+							)}
 						</Disclosure.Button>
 						<Transition
 							show={open}
