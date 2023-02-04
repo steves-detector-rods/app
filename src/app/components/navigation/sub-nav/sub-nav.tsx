@@ -1,27 +1,63 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { MdClose } from 'react-icons/md';
 import { clsx } from 'utils/clsx';
+import { useSubNavContext } from './sub-nav-context-provider';
 import SubNavItem from './sub-nav-item';
 
-export default function SubNav({ isNavOpen }: { isNavOpen: boolean }) {
+function SubNavOptions() {
 	return (
-		<div className={clsx('w-full bg-red-800 py-2 justify-center', isNavOpen ? 'flex' : 'hidden sm:flex')}>
-			<div className="flex flex-col sm:flex-row justify-between w-full max-w-6xl px-4 sm:space-x-4">
-				<div className="flex w-full sm:w-auto space-y-2 sm:space-y-0 sm:space-x-8 flex-col sm:flex-row">
-					<SubNavItem href="/">Home</SubNavItem>
-					<SubNavItem href="/products">Products</SubNavItem>
-					<SubNavItem href="/about">About</SubNavItem>
-					<SubNavItem href="/faq">FAQ</SubNavItem>
-				</div>
-				<p className="hidden md:block text-white">
-					<span>Questions? Contact Steve: </span>
-					<a href="mailto:steve@stevesdetectorrods.com">steve@stevesdetectorrods.com</a>
-				</p>
-				<a
-					href="mailto:steve@stevesdetectorrods.com"
-					className="block md:hidden text-white text-center sm:text-start py-2 sm:py-0"
+		<>
+			<SubNavItem href="/">Home</SubNavItem>
+			<SubNavItem href="/products">Products</SubNavItem>
+			<SubNavItem href="/about">About</SubNavItem>
+			<SubNavItem href="/faq">FAQ</SubNavItem>
+		</>
+	);
+}
+
+export default function SubNav() {
+	const { isSubNavOpen, toggleSubNavOpen } = useSubNavContext();
+
+	return (
+		<>
+			<AnimatePresence>
+				<motion.div
+					key={`sub-nav-${isSubNavOpen}`}
+					initial={{ x: '-100%' }}
+					animate={{ x: 0 }}
+					exit={{ x: '-100%' }}
+					transition={{ type: 'tween' }}
+					className={clsx('absolute sm:hidden', 'w-full h-full', isSubNavOpen ? 'flex' : 'hidden')}
 				>
-					Contact Steve
-				</a>
+					<div className="flex flex-col bg-red-800 min-w-[60vw] h-full px-6 py-4 justify-between">
+						<div className="flex flex-row justify-between">
+							<div className="flex flex-col space-y-2">
+								<SubNavOptions />
+							</div>
+							<button className="mt-2 text-white h-min" onClick={() => toggleSubNavOpen(false)}>
+								<MdClose className="w-5 h-5" />
+							</button>
+						</div>
+						<a href="mailto:steve@stevesdetectorrods.com" className="text-white text-start py-2">
+							Contact Steve
+						</a>
+					</div>
+				</motion.div>
+			</AnimatePresence>
+			<div className={clsx('hidden sm:flex sticky top-[3.75rem]', 'w-full bg-red-800 py-2 justify-center')}>
+				<div className="flex flex-row justify-between w-full max-w-6xl px-4 space-x-4">
+					<div className="flex space-x-8 flex-row">
+						<SubNavOptions />
+					</div>
+					<p className="hidden md:block text-white">
+						<span>Questions? Contact Steve: </span>
+						<a href="mailto:steve@stevesdetectorrods.com">steve@stevesdetectorrods.com</a>
+					</p>
+					<a href="mailto:steve@stevesdetectorrods.com" className="block md:hidden text-white text-start">
+						Contact Steve
+					</a>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }
