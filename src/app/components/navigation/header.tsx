@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { HiBars3 } from 'react-icons/hi2';
 import { useSubNavContext } from './sub-nav/sub-nav-context-provider';
+import logoLong from '../../../../public/logo-long.png';
 
 export default function Header() {
 	const { toggleSubNavOpen } = useSubNavContext();
@@ -11,13 +12,11 @@ export default function Header() {
 				<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
 					<HiBars3 className="h-7 w-7" />
 				</button>
-				<a href="/">
+				<a className="flex h-7 w-full" href="/">
 					<Image
-						src="/logo-long.png"
+						src={logoLong}
 						alt="Steve's Detector Rods Logo"
-						width={389}
-						height={28}
-						className="aspect-auto"
+						style={{ objectFit: 'contain', objectPosition: 'left center' }}
 					/>
 				</a>
 			</div>
