@@ -11,13 +11,13 @@ export default function Header() {
 				<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
 					<HiBars3 className="h-7 w-7" />
 				</button>
-				<a href="/">
+				<a className="flex h-7 w-full" href="/">
 					<Image
 						src="/logo-long.png"
 						alt="Steve's Detector Rods Logo"
-						width={389}
-						height={28}
-						className="aspect-auto"
+						width={417}
+						height={30}
+						style={{ objectFit: 'contain', objectPosition: 'left center' }}
 					/>
 				</a>
 			</div>

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import TopNav from 'app/components/navigation/top-nav';
-import Footer from 'app/footer';
+import TopNav from 'src/app/components/navigation/top-nav';
+import Footer from 'src/app/footer';
 
 export default function Template({ children }: { children: ReactNode }) {
 	return (
