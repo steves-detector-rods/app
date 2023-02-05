@@ -12,10 +12,8 @@ export default function AccordionItem({ title, content }: { title: ReactNode; co
 				{({ open }) => (
 					<div className="border-b-[1px]">
 						<Disclosure.Button
-							className={clsx(
-								'flex flex-row justify-between items-center w-full py-4',
-								'text-lg text-left font-medium ',
-							)}
+							className="flex flex-row justify-between items-center w-full py-4
+										text-lg text-left font-medium"
 						>
 							<span>{title}</span>
 							{open ? (

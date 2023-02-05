@@ -41,7 +41,6 @@ export default function FilterListItem({ item }: FilterListItemProps) {
 				id={`filter-list-checkbox-${item.value}`}
 				value={item.value}
 				className="hidden"
-				// className={clsx('h-4 w-4 border-solid border-white', 'accent-red-600')}
 				checked={value}
 				readOnly
 			/>
@@ -70,7 +69,10 @@ export const FilterList = ({ items }: { items: Item[] }) => {
 		<div className="flex flex-col">
 			<div className="flex flex-row items-center justify-between">
 				<p className="text-md text-gray-500">Brand</p>
-				<Link href={{ pathname: pathname, query: {} }} className="py-1 px-3 rounded-xl text-sm hover:bg-gray-100">
+				<Link
+					href={{ pathname: pathname, query: {} }}
+					className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 1s text-sm"
+				>
 					Show All
 				</Link>
 			</div>

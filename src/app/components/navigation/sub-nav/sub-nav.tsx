@@ -53,7 +53,10 @@ export default function SubNav() {
 					</motion.div>
 				</AnimatePresence>
 			</MotionConfig>
-			<div className={clsx('hidden sm:flex sticky top-[3.75rem]', 'w-full bg-red-800 py-2 justify-center')}>
+			<div
+				className="hidden sm:flex sticky top-[3.75rem]
+							w-full bg-red-800 py-2 justify-center"
+			>
 				<div className="flex flex-row justify-between w-full max-w-6xl px-4 space-x-4">
 					<div className="flex space-x-8 flex-row">
 						<SubNavOptions />
