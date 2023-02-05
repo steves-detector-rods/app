@@ -7,13 +7,6 @@ export default function About() {
 		<main>
 			<PageHeader>About Us</PageHeader>
 			<div className="mt-1 sm:mt-2">
-				<Image
-					src="/steve-solo-shot.jpeg"
-					alt="Steve, owner of Steve's Detector Rods"
-					width={248}
-					height={302}
-					className="float-left mr-2 sm:mr-4 w-[40%] h-auto sm:w-auto"
-				/>
 				<div className="space-y-2">
 					<p className="text-md sm:text-lg lg:text-xl">
 						<b>Steve&apos;s Detector Rods</b> is a small business located in Norman, Oklahoma, which was founded in
@@ -23,7 +16,14 @@ export default function About() {
 						price of the extra Explorer lower rods affordable enough to justify the &quot;convenience factor&quot;, I
 						acquired a spare rod for each one of the several coils I owned.
 					</p>
-
+					<Image
+						src="/steve-solo-shot.jpeg"
+						alt="Steve, owner of Steve's Detector Rods"
+						width={248}
+						height={302}
+						className="sm:float-left sm:mr-4 h-auto w-full sm:w-auto"
+						priority
+					/>
 					<p className="text-md sm:text-lg lg:text-xl">
 						After purchasing a{' '}
 						<InlineLink href="https://www.minelab.com/usa/metal-detectors/ctx-3030" target="_blank" rel="noreferrer">
