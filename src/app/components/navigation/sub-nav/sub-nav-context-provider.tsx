@@ -1,4 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
+import { useManipulateBodyScroll } from 'src/app/hooks/useLockBodyScroll';
 
 const SubNavContext = createContext<
 	{ isSubNavOpen: boolean; toggleSubNavOpen: (isOpen?: boolean) => void } | undefined
@@ -6,12 +7,24 @@ const SubNavContext = createContext<
 
 export default function SubNavContextProvider({ children }: PropsWithChildren) {
 	const [isSubNavOpen, setIsSubNavOpen] = useState<boolean>(false);
+	const { enableScroll, disableScroll } = useManipulateBodyScroll();
 
 	return (
 		<SubNavContext.Provider
 			value={{
 				isSubNavOpen,
-				toggleSubNavOpen: (isOpen?: boolean) => setIsSubNavOpen((val) => (isOpen === undefined ? !val : isOpen)),
+				toggleSubNavOpen: (isOpen?: boolean) =>
+					setIsSubNavOpen((val) => {
+						const newValue = isOpen === undefined ? !val : isOpen;
+
+						if (newValue) {
+							disableScroll();
+						} else {
+							enableScroll();
+						}
+
+						return newValue;
+					}),
 			}}
 		>
 			{children}
