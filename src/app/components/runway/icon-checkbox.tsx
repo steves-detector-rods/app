@@ -6,17 +6,17 @@ type CustomIcon = {
 };
 
 export default function IconCheckbox({
-	key,
+	valueKey,
 	text,
 	value,
 	icon,
 }: {
-	key: string;
+	valueKey: string;
 	value: boolean;
 	icon: { base: CustomIcon; contrast?: CustomIcon };
 	text?: string;
 }) {
-	const generatedKey = `filter-list-checkbox-${key}`;
+	const generatedKey = `filter-list-checkbox-${valueKey}`;
 
 	return (
 		<span className="group flex items-center">

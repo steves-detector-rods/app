@@ -38,7 +38,7 @@ export default function FilterListItem({ item }: FilterListItemProps) {
 			className="text-lg"
 		>
 			<IconCheckbox
-				key={item.value}
+				valueKey={item.value}
 				text={item.text}
 				value={value}
 				icon={{
