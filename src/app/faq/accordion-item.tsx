@@ -3,7 +3,6 @@ import { ReactNode } from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
 import { MotionConfig } from 'framer-motion';
 import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
-import { clsx } from 'src/app/utils/clsx';
 
 export default function AccordionItem({ title, content }: { title: ReactNode; content: ReactNode }) {
 	return (
