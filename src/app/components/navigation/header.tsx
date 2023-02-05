@@ -17,7 +17,8 @@ export default function Header() {
 						alt="Steve's Detector Rods Logo"
 						width={417}
 						height={30}
-						style={{ objectFit: 'contain', objectPosition: 'left center' }}
+						style={{ objectFit: 'contain', objectPosition: 'left center', width: 'auto', height: 'auto' }}
+						priority
 					/>
 				</a>
 			</div>
