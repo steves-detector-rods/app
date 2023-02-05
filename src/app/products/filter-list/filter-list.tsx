@@ -2,7 +2,8 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 import { useSearchParams, usePathname } from 'next/navigation';
-import { IoEye, IoEyeOff } from 'react-icons/io5';
+import { IoEye, IoEyeOutline, IoEyeOff, IoEyeOffOutline } from 'react-icons/io5';
+import IconCheckbox from 'src/app/components/runway/icon-checkbox';
 
 type Item = {
 	value: string;
@@ -34,20 +35,17 @@ export default function FilterListItem({ item }: FilterListItemProps) {
 				},
 			}}
 			replace
-			className="group flex items-center text-lg"
+			className="text-lg"
 		>
-			<input
-				type="checkbox"
-				id={`filter-list-checkbox-${item.value}`}
-				value={item.value}
-				className="hidden"
-				checked={value}
-				readOnly
+			<IconCheckbox
+				key={item.value}
+				text={item.text}
+				value={value}
+				icon={{
+					base: { on: <IoEye />, off: <IoEyeOff /> },
+					contrast: { on: <IoEyeOutline />, off: <IoEyeOffOutline /> },
+				}}
 			/>
-			<label htmlFor={`filter-list-checkbox-${item.value}`}>{value ? <IoEye /> : <IoEyeOff />}</label>
-			<label htmlFor={`filter-list-checkbox-${item.value}`} className="ml-3">
-				{item.text}
-			</label>
 		</Link>
 	);
 }
@@ -72,6 +70,7 @@ export const FilterList = ({ items }: { items: Item[] }) => {
 				<Link
 					href={{ pathname: pathname, query: {} }}
 					className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 1s text-sm"
+					replace
 				>
 					Show All
 				</Link>
