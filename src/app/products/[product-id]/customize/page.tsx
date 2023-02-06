@@ -35,7 +35,8 @@ const CustomizeProductWithCommonCustomizations = ({
 							>
 								<input type="checkbox" id={cust.value} className="h-4 w-4" defaultChecked={cust.isDefault} />
 								<label htmlFor={cust.value} className="ml-2">
-									{cust.text}
+									<span>{cust.text}</span>{' '}
+									{cust.isDefault ? <span className="italic font-semibold"> - Default</span> : null}
 								</label>
 							</div>
 						))}
