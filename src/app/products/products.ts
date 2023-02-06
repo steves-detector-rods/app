@@ -14,10 +14,17 @@ type ProductStock = ProductLimitedStock | ProductInStock | ProductOutOfStock;
 
 type ProductCustomizationNoOptions = { type: 'customizable-general' };
 
-/**
- * TODO - What should the structure of these customizations be?
- */
-type ProductCustomizationCommonOptions = { type: 'customizable-custom-options'; customizationOptions: string[] };
+type BaseCustomizationOption = { label: string };
+
+type CheckboxOption = BaseCustomizationOption & {
+	type: 'checkbox';
+	options: { value: string; text: string; isDefault?: boolean }[];
+};
+
+export type ProductCustomizationCommonOptions = {
+	type: 'customizable-custom-options';
+	customizationOptions: CheckboxOption[];
+};
 
 type ProductCustomization = ProductCustomizationCommonOptions | ProductCustomizationNoOptions;
 
@@ -34,7 +41,7 @@ export type Product = {
 /**
  * This products object is temporary until we nail down the datatype
  */
-export const products: Readonly<Record<string, Product>> = {
+export const products: Record<string, Product> = {
 	'product-1': {
 		brandId: 'brand-minelab',
 		name: 'Minelab Equinox 600/800 Complete Carbon-Fiber S-Shaft System',
@@ -57,7 +64,32 @@ export const products: Readonly<Record<string, Product>> = {
 			height: 150,
 		},
 		stock: { type: 'limited' },
-		customize: { type: 'customizable-general' },
+		customize: {
+			type: 'customizable-custom-options',
+			customizationOptions: [
+				{
+					type: 'checkbox',
+					label: 'Length',
+					options: [
+						{ text: 'Small (40")', value: 'length-small' },
+						{ text: 'Medium (46")', value: 'length-medium', isDefault: true },
+						{ text: 'Large (56")', value: 'length-large' },
+					],
+				},
+				{
+					type: 'checkbox',
+					label: 'Color',
+					options: [
+						{ text: 'Red', value: 'color-red' },
+						{ text: 'Black', value: 'color-black', isDefault: true },
+						{ text: 'Green', value: 'color-green' },
+						{ text: 'Blue', value: 'color-blue' },
+						{ text: 'Camouflage', value: 'color-camouflage' },
+						{ text: 'Dark Green', value: 'color-dark-green' },
+					],
+				},
+			],
+		},
 	},
 	'product-3': {
 		brandId: 'brand-t-rex',
@@ -107,4 +139,4 @@ export const products: Readonly<Record<string, Product>> = {
 		},
 		stock: { type: 'out-of-stock', allowWaitList: false },
 	},
-} as const;
+};

@@ -1,78 +1,46 @@
 import { notFound } from 'next/navigation';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
-import { Product, products } from '../../products';
+import { Product, ProductCustomizationCommonOptions, products } from '../../products';
 
-const CustomizeProductWithCommonCustomizations = ({ product }: { product: Product }) => {
+const CustomizeProductWithCommonCustomizations = ({
+	commonCustomizations,
+	name,
+}: {
+	commonCustomizations: ProductCustomizationCommonOptions;
+	name: Product['name'];
+}) => {
 	return (
 		<>
 			<p className="text-lg">
-				You&apos;ve identified that you&apos;d like to customize your <b>{product.name}</b>. While we have a list of
-				common customizations for this product below, this list is not exhaustive! Here at Steve&apos;s Detector Rods,
-				we pride ourselves on customer satisfaction. We handle a wide range of more specific customizations by request.
-				Do not hesitate to reach out to me personally at{' '}
+				You&apos;ve identified that you&apos;d like to customize your <b>{name}</b>. While we have a list of common
+				customizations for this product below, this list is not exhaustive! Here at Steve&apos;s Detector Rods, we pride
+				ourselves on customer satisfaction. We handle a wide range of more specific customizations by request. Do not
+				hesitate to reach out to me personally at{' '}
 				<InlineLink href="mailto:steve@stevesdetectorrods.com">steve@stevesdetectorrods.com</InlineLink>. We will always
 				do our best to accommodate your specific needs!
 			</p>
 
 			<div className="flex flex-col space-y-4">
 				<p className="mt-4 text-lg">
-					Common customizations for <b>{product.name}</b>
+					Common customizations for <b>{name}</b>
 				</p>
-				<div>
-					<p className="text-md text-gray-500">Length</p>
-					<div className="flex items-center  text-lg">
-						<input type="checkbox" id="length-customization-sm" className="h-4 w-4" />
-						<label htmlFor="length-customization-sm" className="ml-2">
-							Small (40&quot;)
-						</label>
+				{commonCustomizations.customizationOptions.map((customization) => (
+					<div key={`customization-section-${customization.label}`}>
+						<p className="text-md text-gray-500">{customization.label}</p>
+						{customization.options.map((cust) => (
+							<div
+								key={`customization-section-${customization.label}-option-${cust.value}`}
+								className="flex items-center text-lg"
+							>
+								<input type="checkbox" id={cust.value} className="h-4 w-4" defaultChecked={cust.isDefault} />
+								<label htmlFor={cust.value} className="ml-2">
+									{cust.text}
+								</label>
+							</div>
+						))}
 					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="length-customization-md" className="h-4 w-4" defaultChecked />
-						<label htmlFor="length-customization-md" className="ml-2">
-							Medium (46&quot;) - <b>Default</b>
-						</label>
-					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="length-customization-lg" className="h-4 w-4" />
-						<label htmlFor="length-customization-lg" className="ml-2">
-							Large (56&quot;)
-						</label>
-					</div>
-				</div>
-				<div>
-					<p className="text-md text-gray-500">Color</p>
-					<div className="flex items-center  text-lg">
-						<input type="checkbox" id="color-customization-red" className="h-4 w-4" />
-						<label htmlFor="color-customization-red" className="ml-2">
-							Red
-						</label>
-					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="color-customization-black" className="h-4 w-4" defaultChecked />
-						<label htmlFor="color-customization-black" className="ml-2">
-							Black - <b>Default</b>
-						</label>
-					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="color-customization-green" className="h-4 w-4" />
-						<label htmlFor="color-customization-green" className="ml-2">
-							Green
-						</label>
-					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="color-customization-blue" className="h-4 w-4" />
-						<label htmlFor="color-customization-blue" className="ml-2">
-							Blue
-						</label>
-					</div>
-					<div className="flex items-center text-lg">
-						<input type="checkbox" id="color-customization-camouflage" className="h-4 w-4" />
-						<label htmlFor="color-customization-camouflage" className="ml-2">
-							Camouflage
-						</label>
-					</div>
-				</div>
+				))}
 			</div>
 			<div className="flex flex-row mt-8">
 				<button
@@ -121,11 +89,13 @@ export default function CustomizeProduct({ params }: { params: { 'product-id': s
 
 	if (!product?.customize) notFound();
 
+	const { customize } = product;
+
 	return (
 		<main>
 			<PageHeader>Pre-Purchase Customization</PageHeader>
-			{product.customize?.type === 'customizable-custom-options' ? (
-				<CustomizeProductWithCommonCustomizations product={product} />
+			{customize.type === 'customizable-custom-options' ? (
+				<CustomizeProductWithCommonCustomizations commonCustomizations={customize} name={product.name} />
 			) : (
 				<CustomizeProductGeneral product={product} />
 			)}
