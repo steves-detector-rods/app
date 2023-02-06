@@ -1,12 +1,17 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { FC } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type ProductInStock = { type: 'in-stock'; quantity: number };
 
 type ProductLimitedStock = { type: 'limited' };
 
-type ProductOutOfStock = { type: 'out-of-stock'; allowWaitList: boolean };
+type ProductOutOfStockWithWaitList = { allowWaitList: true; waitListId: string };
+
+type ProductOutOfStockWithNoWaitList = { allowWaitList: false };
+
+type ProductOutOfStock = { type: 'out-of-stock' } & (ProductOutOfStockWithWaitList | ProductOutOfStockWithNoWaitList);
 
 type ProductStock = ProductLimitedStock | ProductInStock | ProductOutOfStock;
 
@@ -34,13 +39,25 @@ const ProductStockItem: FC<{ stock: ProductStock }> = ({ stock }) => {
 };
 
 type ProductItem = {
+	productId: string;
 	brandName: string;
 	name: string;
 	image: { src: string; width: number; height: number; alt: string };
 	stock?: ProductStock;
+	isCustomizable?: boolean;
+	basePrice: `${number}.${number}`;
+	discountPrice?: `${number}.${number}`;
 };
 
-export const Product: FC<ProductItem> = ({ brandName, name, image, stock }) => {
+export const Product: FC<ProductItem> = ({
+	brandName,
+	name,
+	image,
+	stock,
+	isCustomizable = false,
+	productId,
+	basePrice,
+}) => {
 	const isPurchaseDisabled = stock?.type === 'out-of-stock';
 
 	return (
@@ -56,8 +73,22 @@ export const Product: FC<ProductItem> = ({ brandName, name, image, stock }) => {
 				<p className="text-lg font-medium text-gray-700 mt-4">{name}</p>
 				<p className="text-md font-medium text-gray-500">{brandName}</p>
 				{stock ? <ProductStockItem stock={stock} /> : null}
+				<p className="text-lg">${basePrice}</p>
 			</div>
-			<div className="w-full mt-4">
+			<div className="flex flex-row w-full mt-4 gap-2">
+				{isCustomizable ? (
+					<Link
+						/**
+						 * TODO - What should this URL be?
+						 */
+						href={`/products/${productId}/customize`}
+						className="flex-1 bg-gray-200 py-2 px-4 rounded-lg text-center
+									hover:bg-gray-300 
+                                    transition-colors duration-75"
+					>
+						Customize
+					</Link>
+				) : null}
 				{stock?.type === 'out-of-stock' && stock?.allowWaitList ? (
 					<button
 						className="w-full bg-red-700 text-white py-2 px-4 rounded-lg 
@@ -67,13 +98,13 @@ export const Product: FC<ProductItem> = ({ brandName, name, image, stock }) => {
 					</button>
 				) : (
 					<button
-						className="w-full bg-red-700 text-white py-2 px-4 rounded-lg 
+						className="flex-1 bg-red-700 text-white py-2 px-4 rounded-lg 
                                     hover:bg-red-800 
                                     transition-colors duration-75
                                     disabled:bg-red-300 disabled:cursor-not-allowed disabled:text-gray-50"
 						disabled={isPurchaseDisabled}
 					>
-						Add to Cart
+						Buy Now
 					</button>
 				)}
 			</div>
@@ -81,15 +112,19 @@ export const Product: FC<ProductItem> = ({ brandName, name, image, stock }) => {
 	);
 };
 
-export const ProductItemList: FC<{ products: (ProductItem & { productKey: string })[] }> = ({ products }) => (
+export const ProductItemList: FC<{ products: ProductItem[] }> = ({ products }) => (
 	<div className="w-full grid grid-cols-2 lg:grid-cols-3 grid-flow-row gap-6">
 		{products.map((product) => (
 			<Product
-				key={product.productKey}
+				key={product.productId}
+				productId={product.productId}
 				brandName={product.brandName}
 				image={product.image}
 				name={product.name}
 				stock={product.stock}
+				isCustomizable={product.isCustomizable}
+				basePrice={product.basePrice}
+				discountPrice={product.discountPrice}
 			/>
 		))}
 	</div>
