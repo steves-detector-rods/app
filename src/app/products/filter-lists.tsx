@@ -60,13 +60,13 @@ const FilterListStack = ({ items }: { items: Item[] }) => {
 	);
 };
 
-export const FilterList = ({ items }: { items: Item[] }) => {
+export const FilterList = ({ items, name }: { items: Item[]; name: string }) => {
 	const pathname = usePathname();
 
 	return (
 		<div className="flex flex-col">
 			<div className="flex flex-row items-center justify-between">
-				<p className="text-md text-gray-500">Brand</p>
+				<p className="text-md text-gray-500">{name}</p>
 				<Link
 					href={{ pathname: pathname, query: {} }}
 					className="text-red-800 hover:text-red-700 focus:text-red-900 transition-colors 1s text-sm"
@@ -76,6 +76,21 @@ export const FilterList = ({ items }: { items: Item[] }) => {
 				</Link>
 			</div>
 			<FilterListStack items={items} />
+		</div>
+	);
+};
+
+export const FilterLists = ({
+	metalDetectorBrands,
+	sandScoopHandleBrands,
+}: {
+	metalDetectorBrands: Item[];
+	sandScoopHandleBrands: Item[];
+}) => {
+	return (
+		<div className="flex flex-col space-y-4">
+			<FilterList items={metalDetectorBrands} name="Metal Detectors" />
+			<FilterList items={sandScoopHandleBrands} name="Scoop Handles" />
 		</div>
 	);
 };
