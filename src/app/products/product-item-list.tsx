@@ -1,7 +1,9 @@
+'use client';
 /* eslint-disable sonarjs/no-duplicate-string */
 import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useCartContext } from '../cart-context-provider';
 
 type ProductInStock = { type: 'in-stock'; quantity: number };
 
@@ -59,10 +61,11 @@ export const Product: FC<ProductItem> = ({
 	basePrice,
 }) => {
 	const isPurchaseDisabled = stock?.type === 'out-of-stock';
+	const { addItemToCart } = useCartContext();
 
 	return (
 		<div className="flex flex-col h-full justify-between">
-			<div>
+			<div className="flex flex-col">
 				<Image
 					src={image.src}
 					alt={image.alt}
@@ -75,12 +78,9 @@ export const Product: FC<ProductItem> = ({
 				{stock ? <ProductStockItem stock={stock} /> : null}
 				<p className="text-lg">${basePrice}</p>
 			</div>
-			<div className="flex flex-row w-full mt-4 gap-2">
+			<div className="flex flex-col sm:flex-row w-full mt-4 gap-2">
 				{isCustomizable ? (
 					<Link
-						/**
-						 * TODO - What should this URL be?
-						 */
 						href={`/products/${productId}/customize`}
 						className="flex-1 bg-gray-200 py-2 px-4 rounded-lg text-center
 									hover:bg-gray-300 
@@ -103,8 +103,9 @@ export const Product: FC<ProductItem> = ({
                                     transition-colors duration-75
                                     disabled:bg-red-300 disabled:cursor-not-allowed disabled:text-gray-50"
 						disabled={isPurchaseDisabled}
+						onClick={() => addItemToCart(productId)}
 					>
-						Buy Now
+						Add to Cart
 					</button>
 				)}
 			</div>

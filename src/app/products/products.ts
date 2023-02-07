@@ -29,6 +29,7 @@ export type ProductCustomizationCommonOptions = {
 type ProductCustomization = ProductCustomizationCommonOptions | ProductCustomizationNoOptions;
 
 export type Product = {
+	productId: string;
 	brandId: BrandId;
 	image: { src: string; width: number; height: number; alt: string };
 	name: string;
@@ -43,6 +44,7 @@ export type Product = {
  */
 export const products: Record<string, Product> = {
 	'product-1': {
+		productId: 'product-1',
 		brandId: 'brand-minelab',
 		name: 'Minelab Equinox 600/800 Complete Carbon-Fiber S-Shaft System',
 		basePrice: '159.00',
@@ -54,6 +56,7 @@ export const products: Record<string, Product> = {
 		},
 	},
 	'product-2': {
+		productId: 'product-2',
 		brandId: 'brand-garrett',
 		name: 'Garrett AT-series Complete Carbon-Fiber S-Shaft',
 		basePrice: '159.00',
@@ -92,6 +95,7 @@ export const products: Record<string, Product> = {
 		},
 	},
 	'product-3': {
+		productId: 'product-3',
 		brandId: 'brand-t-rex',
 		name: 'Carbon-Fiber Sand Scoop Handles for T-Rex scoops',
 		basePrice: '135.00',
@@ -104,6 +108,7 @@ export const products: Record<string, Product> = {
 		stock: { type: 'in-stock', quantity: 10 },
 	},
 	'product-4': {
+		productId: 'product-4',
 		brandId: 'brand-stealth',
 		name: 'Carbon-Fiber Sand Scoop Handles for Stealth scoops',
 		basePrice: '135.00',
@@ -116,6 +121,7 @@ export const products: Record<string, Product> = {
 		stock: { type: 'in-stock', quantity: 4 },
 	},
 	'product-5': {
+		productId: 'product-5',
 		brandId: 'brand-xtreme',
 		name: 'Carbon-Fiber Sand Scoop Handles for Xtreme scoops',
 		basePrice: '135.00',
@@ -128,6 +134,7 @@ export const products: Record<string, Product> = {
 		stock: { type: 'out-of-stock', allowWaitList: true, waitListId: 'product-5' },
 	},
 	'product-6': {
+		productId: 'product-6',
 		brandId: 'brand-coob',
 		name: 'Carbon-Fiber Sand Scoop Handles for CooB scoops (30.5mm/1.2" dia.)',
 		basePrice: '135.00',
