@@ -28,7 +28,7 @@ export default function Header() {
 					</button>
 					<a className="flex h-7 w-full" href="/">
 						<Image
-							src="/logo-long.png"
+							src="/img/logo-long.png"
 							alt="Steve's Detector Rods Logo"
 							width={417}
 							height={30}
