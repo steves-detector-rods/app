@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { HiBars3 } from 'react-icons/hi2';
 import { MdOutlineShoppingCart } from 'react-icons/md';
+import logoLong from 'public/img/logo-long.png';
 import { useCartContext } from 'src/app/cart-context-provider';
 import { clsx } from 'src/app/utils/clsx';
 import { useSubNavContext } from './sub-nav/sub-nav-context-provider';
@@ -28,12 +29,9 @@ export default function Header() {
 					</button>
 					<a className="flex h-7 w-full" href="/">
 						<Image
-							src="/img/logo-long.png"
+							src={logoLong}
 							alt="Steve's Detector Rods Logo"
-							width={417}
-							height={30}
-							style={{ objectFit: 'contain', objectPosition: 'left center', width: 'auto', height: 'auto' }}
-							priority
+							style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: 'full' }}
 						/>
 					</a>
 				</div>

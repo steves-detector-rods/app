@@ -39,8 +39,8 @@ export default function Home() {
 						Your home for <b>premium-quality</b>, custom-made <b>carbon-fiber</b> metal detector rods and shafts
 					</h2>
 					<CtaButton className="mt-6 sm:mt-8 flex content-center self-center sm:self-start justify-center">
-						<MdOutlineShoppingCart className="mt-[0.1875rem]" />
-						<span className="ml-2">Shop Now</span>
+						<MdOutlineShoppingCart className="mt-[0.3125rem] sm:mt-1" />
+						<span className="ml-2 lg:ml-3">Shop Now</span>
 					</CtaButton>
 				</div>
 			</div>
