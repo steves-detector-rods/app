@@ -10,11 +10,11 @@ export default function Home() {
 			<div className="relative h-[50vh] sm:h-[60vh] ">
 				<Image
 					src={rollingLandscape}
-					placeholder="blur"
+					alt="Landscape shot of rolling hills"
 					priority
 					quality={100}
-					alt="Landscape shot of rolling hills"
-					fill={true}
+					fill
+					placeholder="blur"
 					style={{
 						objectFit: 'cover',
 						objectPosition: 'center',
