@@ -57,7 +57,7 @@ export default function SubNav() {
 				className="hidden sm:flex sticky top-[3.75rem]
 							w-full bg-red-800 py-2 justify-center"
 			>
-				<div className="flex flex-row justify-between w-full max-w-6xl px-4 space-x-4">
+				<div className={clsx('flex flex-row justify-between w-full space-x-4', 'px-4 lg:px-12 xl:px-20')}>
 					<div className="flex space-x-8 flex-row">
 						<SubNavOptions />
 					</div>
