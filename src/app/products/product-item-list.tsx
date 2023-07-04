@@ -78,7 +78,7 @@ export const Product: FC<ProductItem> = ({
 				{stock ? <ProductStockItem stock={stock} /> : null}
 				<p className="text-lg">${basePrice}</p>
 			</div>
-			<div className="flex flex-col sm:flex-row w-full mt-4 gap-2">
+			<div className="flex flex-col md:flex-row w-full mt-4 gap-2">
 				{isCustomizable ? (
 					<Link
 						href={`/products/${productId}/customize`}
