@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import rollingLandscape from 'public/img/rolling-landscape.png';
+import rollingLandscape from '/public/img/rolling-landscape.png';
 import { CtaButton } from './components/runway/cta-button';
 import { clsx } from './utils/clsx';
 
@@ -12,6 +12,8 @@ export default function Home() {
 					<Image
 						src={rollingLandscape}
 						placeholder="blur"
+						priority
+						quality={100}
 						alt="Landscape shot of rolling hills"
 						fill={true}
 						style={{
@@ -22,6 +24,7 @@ export default function Home() {
 					<div
 						className={clsx(
 							'absolute flex flex-col w-full h-full max-w-[100vw] sm:max-w-[70%] justify-center',
+							'bg-black bg-opacity-20 sm:bg-opacity-0',
 							'px-4 lg:px-12 xl:px-20',
 						)}
 					>
