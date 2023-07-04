@@ -34,7 +34,7 @@
 		"**/*.d.ts",
 		"next.config.js",
 		".next/types/**/*.ts",
-		"public/rolling-landscape.png"
+		"types/index.d.ts"
 	],
 	"exclude": ["node_modules", "**/*.js"]
 }
