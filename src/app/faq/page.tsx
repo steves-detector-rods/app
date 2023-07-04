@@ -1,10 +1,11 @@
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
 import FrequentlyAskedQuestionsAccordion from './frequently-asked-questions';
+import { MainPageWrapper } from '../components/shared/main-page-wrapper';
 
 export default function Faq() {
 	return (
-		<main>
+		<MainPageWrapper>
 			<PageHeader>FAQ</PageHeader>
 			<div className="text-gray-500 text-lg">
 				<p>
@@ -20,6 +21,6 @@ export default function Faq() {
 				Don&apos;t see what you&apos;re looking for? No problem! Just shoot me an email at{' '}
 				<InlineLink href="mailto:steve@stevesdetectorrods.com">steve@stevesdetectorrods.com</InlineLink>
 			</p>
-		</main>
+		</MainPageWrapper>
 	);
 }

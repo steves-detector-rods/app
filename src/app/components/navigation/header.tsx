@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { HiBars3 } from 'react-icons/hi2';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import { useCartContext } from 'src/app/cart-context-provider';
+import { clsx } from 'src/app/utils/clsx';
 import { useSubNavContext } from './sub-nav/sub-nav-context-provider';
 
 export default function Header() {
@@ -13,7 +14,13 @@ export default function Header() {
 	} = useCartContext();
 
 	return (
-		<div className="sticky top-0 justify-center w-full max-w-6xl px-4 py-4 border-b-2 sm:border-b-0 bg-white">
+		<div
+			className={clsx(
+				'sticky top-0 justify-center w-full border-b-2 sm:border-b-0 bg-white',
+				'px-4 lg:px-12 xl:px-20',
+				'py-4',
+			)}
+		>
 			<div className="flex items-center justify-between">
 				<div className="flex flex-row items-center space-x-2 sm:space-x-0">
 					<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
@@ -21,7 +28,7 @@ export default function Header() {
 					</button>
 					<a className="flex h-7 w-full" href="/">
 						<Image
-							src="/logo-long.png"
+							src="/img/logo-long.png"
 							alt="Steve's Detector Rods Logo"
 							width={417}
 							height={30}

@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
+import { MainPageWrapper } from '../components/shared/main-page-wrapper';
 
 export default function About() {
 	return (
-		<main>
+		<MainPageWrapper>
 			<PageHeader>About Us</PageHeader>
 			<div className="mt-1 sm:mt-2">
 				<div className="space-y-2">
@@ -92,6 +93,6 @@ export default function About() {
 					</p>
 				</div>
 			</div>
-		</main>
+		</MainPageWrapper>
 	);
 }
