@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { MdOutlineShoppingCart } from 'react-icons/md';
-import rollingLandscape from 'public/img/rolling-landscape.png';
+import rollingLandscape from 'public/rolling-landscape.png';
 import { CtaButton } from './components/runway/cta-button';
 import { clsx } from './utils/clsx';
 
