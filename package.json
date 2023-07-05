@@ -15,6 +15,7 @@
 		"@headlessui/react": "^1.7.8",
 		"@next/font": "13.1.2",
 		"@react-aria/button": "^3.6.4",
+		"@react-aria/link": "^3.5.2",
 		"@types/node": "18.11.18",
 		"@types/react": "18.0.26",
 		"@types/react-dom": "18.0.10",

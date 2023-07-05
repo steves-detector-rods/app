@@ -22,20 +22,18 @@ export default function Header() {
 				'py-4',
 			)}
 		>
-			<div className="flex items-center justify-between">
-				<div className="flex flex-row items-center space-x-2 sm:space-x-0">
-					<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
-						<HiBars3 className="h-6 w-6" />
-					</button>
-					<a className="flex h-7 w-full" href="/">
-						<Image
-							src={logoLong}
-							alt="Steve's Detector Rods Logo"
-							style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: 'full' }}
-						/>
-					</a>
-				</div>
-				<Link href="/cart" className="ml-2 text-black hover:text-gray-700 transition-colors duration-75 relative">
+			<div className="flex items-center justify-between space-x-2">
+				<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
+					<HiBars3 className="h-6 w-6" />
+				</button>
+				<a className="flex h-5 sm:h-7" href="/">
+					<Image
+						src={logoLong}
+						alt="Steve's Detector Rods Logo"
+						style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: 'full' }}
+					/>
+				</a>
+				<Link href="/cart" className="text-black hover:text-gray-700 transition-colors duration-75 relative">
 					{totalItems ? (
 						<motion.div
 							key={`cart-with-${totalItems}-items`}
