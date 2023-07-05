@@ -30,7 +30,7 @@ export default function SubNav() {
 							animate={{ opacity: '25%' }}
 							exit={{ opacity: 0 }}
 							className={clsx(
-								'absolute top-0 left-0 sm:hidden',
+								'fixed top-0 left-0 sm:hidden',
 								'w-full h-full bg-black',
 								isSubNavOpen ? 'flex' : 'hidden',
 							)}
@@ -41,7 +41,7 @@ export default function SubNav() {
 							initial={{ x: '-100%' }}
 							animate={{ x: 0 }}
 							exit={{ x: '-100%' }}
-							className={clsx('absolute top-0 left-0 sm:hidden', 'h-full left-0', isSubNavOpen ? 'flex' : 'hidden')}
+							className={clsx('fixed top-0 left-0 sm:hidden', 'h-full left-0', isSubNavOpen ? 'flex' : 'hidden')}
 						>
 							<div className="flex flex-col bg-red-800 min-w-[60vw] h-full px-6 py-4 justify-between">
 								<div className="flex flex-row justify-between">
