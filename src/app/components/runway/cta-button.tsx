@@ -1,6 +1,6 @@
 'use client';
-import { PropsWithChildren, useRef } from 'react';
-import { AriaButtonProps, useButton } from '@react-aria/button';
+import { HTMLProps, PropsWithChildren, useRef } from 'react';
+import { AriaLinkOptions, useLink } from '@react-aria/link';
 import { clsx } from 'src/app/utils/clsx';
 
 type Variant = 'primary';
@@ -9,24 +9,39 @@ const variantClasses: Record<Variant, string> = {
 	primary: 'bg-red-700 hover:bg-red-800',
 };
 
-type CtaButtonProps = AriaButtonProps & PropsWithChildren<{ variant?: Variant; className?: string }>;
+type CtaButtonLinkProps = AriaLinkOptions &
+	PropsWithChildren<{
+		href: Exclude<HTMLProps<HTMLAnchorElement>['href'], undefined>;
+		target?: HTMLProps<HTMLAnchorElement>['target'];
+		variant?: Variant;
+		className?: string;
+	}>;
 
-export function CtaButton({ variant = 'primary', className = '', children, ...props }: CtaButtonProps) {
-	const ref = useRef<HTMLButtonElement>(null);
-	const { buttonProps } = useButton(props, ref);
+export function CtaButtonLink({
+	variant = 'primary',
+	className = '',
+	href,
+	target,
+	children,
+	...props
+}: CtaButtonLinkProps) {
+	const ref = useRef<HTMLAnchorElement>(null);
+	const { linkProps } = useLink(props, ref);
 
 	return (
-		<button
+		<a
 			ref={ref}
+			href={href}
+			target={target}
 			className={clsx(
 				variantClasses[variant],
 				'px-12 sm:px-16 py-2 sm:py-3 rounded-xl text-lg sm:text-xl lg:text-2xl text-white',
 				'transition-colors 100ms',
 				className,
 			)}
-			{...buttonProps}
+			{...linkProps}
 		>
 			{children}
-		</button>
+		</a>
 	);
 }
