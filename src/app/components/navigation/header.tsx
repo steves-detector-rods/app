@@ -26,11 +26,11 @@ export default function Header() {
 				<button className="inline sm:hidden" onClick={() => toggleSubNavOpen()}>
 					<HiBars3 className="h-6 w-6" />
 				</button>
-				<a className="flex h-5 sm:h-7" href="/">
+				<a className="flex h-5 sm:h-7 self-center" href="/">
 					<Image
 						src={logoLong}
 						alt="Steve's Detector Rods Logo"
-						style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: 'full' }}
+						style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: '100%' }}
 					/>
 				</a>
 				<Link href="/cart" className="text-black hover:text-gray-700 transition-colors duration-75 relative">
