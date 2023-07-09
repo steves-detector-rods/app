@@ -30,7 +30,7 @@ export default function SubNav() {
 							animate={{ opacity: '25%' }}
 							exit={{ opacity: 0 }}
 							className={clsx(
-								'fixed top-0 left-0 sm:hidden',
+								'fixed top-0 left-0 sm:hidden z-[1]',
 								'w-full h-full bg-black',
 								isSubNavOpen ? 'flex' : 'hidden',
 							)}
@@ -41,7 +41,7 @@ export default function SubNav() {
 							initial={{ x: '-100%' }}
 							animate={{ x: 0 }}
 							exit={{ x: '-100%' }}
-							className={clsx('fixed top-0 left-0 sm:hidden', 'h-full left-0', isSubNavOpen ? 'flex' : 'hidden')}
+							className={clsx('fixed top-0 left-0 sm:hidden z-[1]', 'h-full left-0', isSubNavOpen ? 'flex' : 'hidden')}
 						>
 							<div className="flex flex-col bg-red-800 min-w-[60vw] h-full px-6 py-4 justify-between">
 								<div className="flex flex-row justify-between">
@@ -62,7 +62,7 @@ export default function SubNav() {
 			</Portal>
 			<div
 				className="hidden sm:flex sticky top-[3.75rem]
-							w-full bg-red-800 py-2 justify-center"
+							w-full bg-red-800 py-2 justify-center z-[1]"
 			>
 				<div className={clsx('flex flex-row justify-between w-full space-x-4', 'px-4 lg:px-12 xl:px-20')}>
 					<div className="flex space-x-8 flex-row">

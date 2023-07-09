@@ -17,7 +17,7 @@ export default function Header() {
 	return (
 		<div
 			className={clsx(
-				'sticky top-0 justify-center w-full border-b-2 sm:border-b-0 bg-white',
+				'sticky top-0 justify-center w-full border-b-2 sm:border-b-0 bg-white z-[1]',
 				'px-4 lg:px-12 xl:px-20',
 				'py-4',
 			)}
