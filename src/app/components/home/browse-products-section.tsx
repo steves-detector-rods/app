@@ -115,9 +115,7 @@ export function BrowseProductsSection() {
 			<Tabs aria-label="Browse Our Products" defaultSelectedKey="All" orientation="vertical">
 				<Item key="All" title="All">
 					<div>
-						<p className="text-gray-700 text-lg mt-3 mb-6">
-							Select your detector from our list of available options below
-						</p>
+						<p className="text-gray-700 text-lg mt-3 mb-6">Refine your search below</p>
 						<ProductGrid>
 							{Object.values(featuredProducts)
 								.flat(1)
@@ -154,7 +152,7 @@ export function BrowseProductsSection() {
 				<Item key="Accessories" title="Accessories">
 					<div>
 						<p className="text-gray-700 text-lg mt-3 mb-6">
-							Replacement counterweights, cuffs, official merch and more!
+							Replacement parts, counterweights, cuffs, official merch and more!
 						</p>
 						<ProductGrid>
 							{featuredProducts.Accessories.map((productProps) => (
