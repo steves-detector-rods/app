@@ -91,7 +91,7 @@ const featuredProducts: Record<Readonly<Exclude<TabOpts, 'All'>>, Readonly<Featu
 		{ img: counterWeight, alt: 'Counter weight for shafts', title: 'Counter Weight' },
 		{ img: armCuff, alt: 'Arm Cuffs fit for Steves Detector Rods Shafts', title: 'Arm Cuffs' },
 		{ img: camLock, alt: 'Replacement Cam Lock for SDR Shafts', title: 'Cam Lock' },
-		{ img: rubberWasher, alt: 'Replacement Washer for All SDR Lower Rods', title: 'Washer' },
+		{ img: rubberWasher, alt: 'Replacement parts for any SDR Rods', title: 'Replacement Parts' },
 		{ img: apparel, alt: "Official Steve's Detector Rods Apparel", title: 'Apparel' },
 	],
 } as const;
