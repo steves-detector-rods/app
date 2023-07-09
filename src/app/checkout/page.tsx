@@ -1,10 +1,10 @@
 import PageHeader from '../components/runway/page-header';
-import { MainPageWrapper } from '../components/shared/main-page-wrapper';
+import { MainSectionWrapper } from '../components/runway/section-wrapper';
 
 export default function Checkout() {
 	return (
-		<MainPageWrapper>
+		<MainSectionWrapper>
 			<PageHeader>Checkout</PageHeader>
-		</MainPageWrapper>
+		</MainSectionWrapper>
 	);
 }

@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
-import { MainPageWrapper } from 'src/app/components/shared/main-page-wrapper';
+import { MainSectionWrapper } from 'src/app/components/runway/section-wrapper';
 import { Product, ProductCustomizationCommonOptions, products } from '../../products';
 
 const CustomizeProductWithCommonCustomizations = ({
@@ -94,13 +94,13 @@ export default function CustomizeProduct({ params }: { params: { 'product-id': s
 	const { customize } = product;
 
 	return (
-		<MainPageWrapper>
+		<MainSectionWrapper>
 			<PageHeader>Pre-Purchase Customization</PageHeader>
 			{customize.type === 'customizable-custom-options' ? (
 				<CustomizeProductWithCommonCustomizations commonCustomizations={customize} name={product.name} />
 			) : (
 				<CustomizeProductGeneral product={product} />
 			)}
-		</MainPageWrapper>
+		</MainSectionWrapper>
 	);
 }
