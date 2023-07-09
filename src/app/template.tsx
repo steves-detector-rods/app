@@ -6,7 +6,7 @@ export default function Template({ children }: { children: ReactNode }) {
 	return (
 		<div className="flex flex-col items-center overflow-clip w-screen min-h-screen">
 			<TopNav />
-			<div className="w-full pb-2 sm:pb-4">{children}</div>
+			{children}
 			<Footer />
 		</div>
 	);
