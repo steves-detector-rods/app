@@ -18,7 +18,7 @@ export default function FilterListItem({ item }: FilterListItemProps) {
 	const searchParams = useSearchParams();
 	const pathname = usePathname();
 	const value = useMemo(() => {
-		const paramValue = searchParams.get(item.value);
+		const paramValue = searchParams?.get(item.value);
 
 		if (!paramValue) return true;
 
@@ -30,7 +30,7 @@ export default function FilterListItem({ item }: FilterListItemProps) {
 			href={{
 				pathname: pathname,
 				query: {
-					...Object.fromEntries(searchParams.entries()),
+					...(searchParams ? Object.fromEntries(searchParams.entries()) : {}),
 					[item.value]: !value,
 				},
 			}}
