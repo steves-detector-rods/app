@@ -21,9 +21,9 @@ function Tab({
 		<div
 			className={clsx(
 				'relative text-lg whitespace-nowrap',
-				'py-1 sm:py-2 px-2 sm:px-1 w-full sm:w-min',
+				'py-1 sm:py-1.5 px-2 sm:px-1 w-full sm:w-min',
 				'hover:cursor-pointer',
-				"after:content-[''] after:absolute after:block after:h-[2px] after:mt-2",
+				"after:content-[''] after:absolute after:block after:h-[2px] after:mt-1.5",
 				'after:transition-all after:duration-[0.2s]',
 				...(isSelected
 					? [
