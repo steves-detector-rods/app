@@ -41,7 +41,7 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 			<div
 				className={clsx(
 					'absolute flex flex-col top-0 left-0 right-0 bottom-0 items-center justify-center',
-					'bg-gradient-to-t from-black/30 to-black/0 hover:bg-gradient-to-t hover:from-black/30 hover:to-black/30',
+					'bg-gradient-to-t from-black/30 to-black/10 hover:bg-gradient-to-t hover:from-black/30 hover:to-black/30',
 					'transition-colors duration-100',
 				)}
 			>
