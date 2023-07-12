@@ -33,7 +33,11 @@ export default function Header() {
 						style={{ objectFit: 'contain', objectPosition: 'center', width: 'auto', height: '100%' }}
 					/>
 				</a>
-				<Link href="/cart" className="text-black hover:text-gray-700 transition-colors duration-75 relative">
+				<Link
+					href="/cart"
+					aria-label="View shopping cart"
+					className="text-black hover:text-gray-700 transition-colors duration-75 relative"
+				>
 					{totalItems ? (
 						<motion.div
 							key={`cart-with-${totalItems}-items`}
