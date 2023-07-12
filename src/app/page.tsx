@@ -7,7 +7,7 @@ import { clsx } from './utils/clsx';
 
 function HeroSection() {
 	return (
-		<div className="relative h-[50vh]">
+		<div className="relative">
 			<Image
 				src={rollingLandscape}
 				alt="Landscape shot of rolling hills"
@@ -22,9 +22,9 @@ function HeroSection() {
 			/>
 			<div
 				className={clsx(
-					'absolute flex flex-col w-full h-full max-w-[100vw] sm:max-w-[70%] justify-center',
+					'relative flex flex-col max-w-[100vw] sm:max-w-[70%] justify-center',
 					'bg-black bg-opacity-20 sm:bg-opacity-0',
-					'px-4 lg:px-12 xl:px-20',
+					'px-4 lg:px-12 xl:px-20 py-12 lg:py-24',
 				)}
 			>
 				<h2
@@ -33,14 +33,13 @@ function HeroSection() {
 						'md:text-4xl md:leading-10',
 						'lg:text-5xl lg:leading-[3.25rem]',
 						'text-white font-normal',
-						'my-2 rounded-xl',
 					)}
 				>
 					Your home for <b>premium-quality</b>, custom-made <b>carbon-fiber</b> metal detector rods and shafts
 				</h2>
 				<CtaButtonLink
 					href="products"
-					className="mt-6 sm:mt-8 flex content-center self-center sm:self-start justify-center"
+					className="mt-8 sm:mt-8 flex content-center self-center sm:self-start justify-center"
 				>
 					<MdOutlineShoppingCart className="mt-[0.3125rem] sm:mt-1" />
 					<span className="ml-2 lg:ml-3">Shop Now</span>
