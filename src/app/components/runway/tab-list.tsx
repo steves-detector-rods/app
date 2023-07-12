@@ -20,24 +20,10 @@ function Tab({
 	return (
 		<div
 			className={clsx(
-				'relative text-lg whitespace-nowrap',
-				'py-1 sm:py-1.5 px-2 sm:px-1 w-full sm:w-min',
-				'hover:cursor-pointer',
-				"after:content-[''] after:absolute after:block after:h-[2px] after:mt-1.5",
-				'after:transition-all after:duration-[0.2s]',
-				...(isSelected
-					? [
-							'sm:after:w-[100%] sm:after:left-0 sm:after:bg-red-800 sm:text-red-800 sm:bg-transparent sm:rounded-none',
-							'font-normal',
-							'bg-red-800 text-white rounded-lg',
-					  ]
-					: [
-							'font-light',
-							'sm:hover:after:w-[100%] sm:hover:after:left-0 sm:hover:after:bg-red-600 sm:hover:text-red-700',
-							// eslint-disable-next-line max-len
-							'sm:after:w-0 sm:after:right-0 sm:after:bg-red-700 sm:after:text-red-700',
-					  ]),
-				'outline-red-700',
+				'relative text-xl sm:text-lg whitespace-nowrap',
+				'hover:cursor-pointer transition-colors duration-150',
+				isSelected ? 'text-red-800' : 'hover:text-red-700',
+				'focus:outline-none',
 			)}
 			{...tabProps}
 			onClick={() => {
@@ -51,7 +37,17 @@ function Tab({
 			}}
 			ref={tabRef}
 		>
-			{rendered}
+			<div className="px-3 py-1.5">{rendered}</div>
+			{/*
+			 * When you inevitably come back and want to fix this, using layoutId and motion.div is currently broken in the
+			 * Next 13 app directory. The issue below is probably what will fix this. Test it on:
+			 * 1. Chrome
+			 * 2. Chrome on a small viewport browser
+			 * 3. Safari (all sizes)
+			 *
+			 * https://github.com/vercel/next.js/issues/49279
+			 */}
+			<div className={clsx('bg-red-800 h-[2px] w-full', isSelected ? 'visible' : 'invisible')} />
 		</div>
 	);
 }
@@ -73,13 +69,13 @@ const orientationTabListClasses: Record<Orientation, string> = {
 
 const orientationTabClasses: Record<Orientation, string> = {
 	horizontal: 'flex-col',
-	vertical: 'flex-row sm:border-b-2 space-y-2 sm:space-y-0 sm:space-x-6',
+	vertical: 'flex-row',
 };
 
 export function Tabs(props: AriaTabListProps<AriaTabProps>) {
 	const state = useTabListState(props);
-	const tabsRef = useRef(null);
-	const { tabListProps } = useTabList(props, state, tabsRef);
+	const tabsContainerRef = useRef(null);
+	const { tabListProps } = useTabList(props, state, tabsContainerRef);
 
 	const { orientation = 'horizontal' } = props;
 
@@ -87,11 +83,11 @@ export function Tabs(props: AriaTabListProps<AriaTabProps>) {
 		<div className={clsx('flex w-full', orientationTabListClasses[orientation])}>
 			<div
 				className={clsx(
-					'flex flex-col sm:flex-row justify-start items-center overflow-x-auto sm:overflow-x-clip',
+					'flex justify-start items-center border-b-[1px] border-gray-300 space-x-2 overflow-x-auto',
 					orientationTabClasses[orientation],
 				)}
 				{...tabListProps}
-				ref={tabsRef}
+				ref={tabsContainerRef}
 			>
 				{[...state.collection].map((item: Node<AriaTabProps>) => (
 					<Tab key={item.key} item={item} state={state} orientation={orientation} />

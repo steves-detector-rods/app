@@ -1,12 +1,12 @@
 'use client';
 import { PropsWithChildren } from 'react';
 import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
 import { Item } from 'react-stately';
 import apparel from 'public/img/products/accessories/apparel.jpg';
 import armCuff from 'public/img/products/accessories/arm-cuff.jpg';
 import camLock from 'public/img/products/accessories/cam-lock.jpg';
 import counterWeight from 'public/img/products/accessories/counter-weight.jpg';
-import rubberWasher from 'public/img/products/accessories/rubber-washer.jpg';
 import coobCarbonFiberScoopHandle from 'public/img/products/coob/carbon-fiber-sand-scoop-handler-for-coob-scoops.jpeg';
 import xpDuesIICompleteShaft from 'public/img/products/deus/xp-deus-ii-complete-shaft.jpg';
 import garrettTwoPieceLowerShaft from 'public/img/products/garrett/garrett-two-piece-carbon-fiber-lower-shaft.jpg';
@@ -14,14 +14,20 @@ import minelabCarbonFiberSShaft from 'public/img/products/minelab/equinox-600-80
 import tarsacciCarbonFiberLowerRod from 'public/img/products/tarsacci/tarsacci-lower-rod.jpg';
 import PageHeader from 'src/app/components/runway/page-header';
 import { DivSectionWrapper } from 'src/app/components/runway/section-wrapper';
+import { Tabs } from 'src/app/components/runway/tab-list';
 import { clsx } from 'src/app/utils/clsx';
-import { Tabs } from '../runway/tab-list';
+import { CtaButtonLink } from '../runway/cta-button';
 
 type FeaturedProductProps = { img: StaticImageData; title: string; alt: string };
 
 function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 	return (
-		<a
+		<Link
+			href={{
+				pathname: '/products',
+				// TODO - Handle deep linking into brands
+				query: {},
+			}}
 			className={clsx(
 				'relative aspect-[900/1000] flex-1 shrink-0 rounded-lg overflow-hidden',
 				'sm:hover:scale-105 transition duration-100 hover:cursor-pointer',
@@ -47,7 +53,7 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 			>
 				<span className="font-medium text-2xl sm:text-3xl text-center text-white">{title}</span>
 			</div>
-		</a>
+		</Link>
 	);
 }
 
@@ -63,6 +69,11 @@ const featuredProducts: Record<Readonly<Exclude<TabOpts, 'All'>>, Readonly<Featu
 	Scoops: [
 		{
 			img: coobCarbonFiberScoopHandle,
+			alt: 'Stealth carbon fiber sand scoop handles',
+			title: 'Stealth',
+		},
+		{
+			img: coobCarbonFiberScoopHandle,
 			alt: 'CooB carbon fiber sand scoop handles',
 			title: 'CooB',
 		},
@@ -73,25 +84,14 @@ const featuredProducts: Record<Readonly<Exclude<TabOpts, 'All'>>, Readonly<Featu
 		},
 		{
 			img: coobCarbonFiberScoopHandle,
-			alt: 'Xtreme carbon fiber sand scoop handles',
-			title: 'Xtreme',
-		},
-		{
-			img: coobCarbonFiberScoopHandle,
-			alt: 'Stealth carbon fiber sand scoop handles',
-			title: 'Stealth',
-		},
-		{
-			img: coobCarbonFiberScoopHandle,
-			alt: 'T-Rex carbon fiber sand scoop handles',
-			title: 'T-Rex',
+			alt: 'CKG carbon fiber sand scoop handles',
+			title: 'CKG',
 		},
 	],
 	Accessories: [
 		{ img: counterWeight, alt: 'Counter weight for shafts', title: 'Counter Weight' },
 		{ img: armCuff, alt: 'Arm Cuffs fit for Steves Detector Rods Shafts', title: 'Arm Cuffs' },
-		{ img: camLock, alt: 'Replacement Cam Lock for SDR Shafts', title: 'Cam Lock' },
-		{ img: rubberWasher, alt: 'Replacement parts for any SDR Rods', title: 'Replacement Parts' },
+		{ img: camLock, alt: 'Replacement parts for any SDR Rods', title: 'Replacement Parts' },
 		{ img: apparel, alt: "Official Steve's Detector Rods Apparel", title: 'Apparel' },
 	],
 } as const;
@@ -108,6 +108,10 @@ function ProductGrid({ children }: PropsWithChildren<{}>) {
 	);
 }
 
+function TabSectionSubHeader({ children }: PropsWithChildren<{}>) {
+	return <p className="text-gray-700 text-lg mt-2 mb-6">{children}</p>;
+}
+
 export function BrowseProductsSection() {
 	return (
 		<DivSectionWrapper className="mt-4 sm:mt-8">
@@ -115,7 +119,9 @@ export function BrowseProductsSection() {
 			<Tabs aria-label="Browse Our Products" defaultSelectedKey="All" orientation="vertical">
 				<Item key="All" title="All">
 					<div>
-						<p className="text-gray-700 text-lg mt-3 mb-6">Refine your search below</p>
+						<TabSectionSubHeader>
+							Browse our expansive collection of high quality carbon-fiber metal detector rod and sand scoop add ons
+						</TabSectionSubHeader>
 						<ProductGrid>
 							{Object.values(featuredProducts)
 								.flat(1)
@@ -126,32 +132,53 @@ export function BrowseProductsSection() {
 					</div>
 				</Item>
 				<Item key="CompleteUpperShafts" title="Shafts">
-					<div>
-						<p className="text-gray-700 text-lg mt-3 mb-6">
+					<div className="flex flex-col">
+						<TabSectionSubHeader>
 							Select your detector brand from our list of available options below
-						</p>
+						</TabSectionSubHeader>
 						<ProductGrid>
 							{featuredProducts.Shafts.map((productProps) => (
 								<FeaturedProduct key={productProps.title} {...productProps} />
 							))}
 						</ProductGrid>
+						<CtaButtonLink size="md" className="mt-6 self-center w-full sm:w-auto text-center" href="/products">
+							Browse All Shafts
+						</CtaButtonLink>
+						<p className="text-xl text-gray-600 mt-4">
+							Don&apos;t see your brand listed? We may be able to customize to your needs! Send{' '}
+							<a className="text-red-800 hover:text-red-700" href="mailto:steve@stevesdetectorrods.com">
+								Steve an email
+							</a>
+							!
+						</p>
 					</div>
 				</Item>
 				<Item key="SandScoopHandles" title="Sand Scoop Handles">
-					<div>
-						<p className="text-gray-700 text-lg mt-3 mb-6">
-							Select your scoop brand from our list of available options below
-						</p>
+					<div className="flex flex-col">
+						<TabSectionSubHeader>Select your scoop brand from our list of available options below</TabSectionSubHeader>
 						<ProductGrid>
 							{featuredProducts.Scoops.map((productProps) => (
 								<FeaturedProduct key={productProps.title} {...productProps} />
 							))}
 						</ProductGrid>
+						<div className="flex flex-col sm:flex-row justify-center items-center gap-4 w-full mt-8">
+							<CtaButtonLink
+								size="md"
+								variant="secondary"
+								className="self-center w-full sm:w-auto text-center"
+								href="/products"
+							>
+								Browse Other Handles
+							</CtaButtonLink>
+							<CtaButtonLink size="md" className="self-center w-full sm:w-auto text-center" href="/products">
+								Browse All Handles
+							</CtaButtonLink>
+						</div>
 					</div>
 				</Item>
 				<Item key="Accessories" title="Accessories">
 					<div>
-						<p className="text-gray-700 text-lg mt-3 mb-6">
+						<p className="text-gray-700 text-lg mt-2 mb-6">
 							Replacement parts, counterweights, cuffs, official merch and more!
 						</p>
 						<ProductGrid>

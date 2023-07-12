@@ -61,7 +61,7 @@ export default function SubNav() {
 				</MotionConfig>
 			</Portal>
 			<div
-				className="hidden sm:flex sticky top-[3.75rem]
+				className="hidden sm:flex sm:sticky sm:top-[3.75rem]
 							w-full bg-red-800 py-2 justify-center z-[1]"
 			>
 				<div className={clsx('flex flex-row justify-between w-full space-x-4', 'px-4 lg:px-12 xl:px-20')}>
