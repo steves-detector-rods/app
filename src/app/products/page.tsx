@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { brands } from './brands';
 import { FilterLists } from './filter-lists';
 import { ProductItemList } from './product-item-list';
@@ -34,3 +35,8 @@ export default function Products() {
 		</MainSectionWrapper>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | Products",
+	description: 'Shop all of the latest metal detector shafts, carbon-fiber rods, sand scoop handles and more!',
+};

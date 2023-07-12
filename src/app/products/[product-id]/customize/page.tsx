@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
@@ -104,3 +105,8 @@ export default function CustomizeProduct({ params }: { params: { 'product-id': s
 		</MainSectionWrapper>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | Customize",
+	description: 'Make customizations to your product before you purchase',
+};

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { CartItemsList } from './cart-items-list';
 import PageHeader from '../components/runway/page-header';
 import { MainSectionWrapper } from '../components/runway/section-wrapper';
@@ -10,3 +11,7 @@ export default function Cart() {
 		</MainSectionWrapper>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | Cart",
+};

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
@@ -96,3 +97,8 @@ export default function About() {
 		</MainSectionWrapper>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | About",
+	description: "Steve's Detector Rods is ran by a detectorist, for detectorists. Learn about us and our mission here",
+};

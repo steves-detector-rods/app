@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import InlineLink from 'src/app/components/runway/inline-link';
 import PageHeader from 'src/app/components/runway/page-header';
 import FrequentlyAskedQuestionsAccordion from './frequently-asked-questions';
@@ -24,3 +25,8 @@ export default function Faq() {
 		</MainSectionWrapper>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | FAQ",
+	description: 'Questions? We have answers',
+};

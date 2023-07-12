@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import CartContextProvider from './cart-context-provider';
 import './globals.css';
 
@@ -11,3 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		</html>
 	);
 }
+
+export const metadata: Metadata = {
+	viewport: {
+		width: 'device-width',
+		initialScale: 1,
+	},
+};
