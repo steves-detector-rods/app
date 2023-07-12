@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { MdOutlineShoppingCart } from 'react-icons/md';
 import rollingLandscape from 'public/rolling-landscape.png';
@@ -57,3 +58,10 @@ export default function Home() {
 		</main>
 	);
 }
+
+export const metadata: Metadata = {
+	title: "Steve's Detector Rods | Home",
+	description:
+		// eslint-disable-next-line max-len
+		"Steve's Detector Rods, Your home of premium-quality carbon-fiber detector rods/shafts, sand-scoop handles, and other accessories for your detecting needs",
+};
