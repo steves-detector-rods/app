@@ -31,7 +31,7 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 			className={clsx(
 				'relative aspect-[900/1000] flex-1 shrink-0 rounded-lg overflow-hidden',
 				'sm:hover:scale-[1.03] sm:hover:drop-shadow-xl transition duration-100',
-				'active:!scale-[0.98] sm:active:!scale-100',
+				'active:!scale-[0.96] sm:active:!scale-100',
 			)}
 		>
 			<Image
