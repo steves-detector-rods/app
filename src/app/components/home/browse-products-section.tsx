@@ -30,7 +30,8 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 			}}
 			className={clsx(
 				'relative aspect-[900/1000] flex-1 shrink-0 rounded-lg overflow-hidden',
-				'sm:hover:scale-105 transition duration-100 hover:cursor-pointer',
+				'sm:hover:scale-[1.03] sm:hover:drop-shadow-xl transition duration-100',
+				'active:!scale-[0.98] sm:active:!scale-100',
 			)}
 		>
 			<Image
@@ -48,7 +49,7 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 			<div
 				className={clsx(
 					'absolute flex flex-col top-0 left-0 right-0 bottom-0 items-center justify-center',
-					'bg-gradient-to-t from-black/30 to-black/10 hover:bg-gradient-to-t hover:from-black/30 hover:to-black/30',
+					'bg-gradient-to-t from-black/30 to-black/10',
 					'transition-colors duration-100',
 				)}
 			>
