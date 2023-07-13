@@ -16,6 +16,7 @@ function HeroSection() {
 				quality={100}
 				fill
 				placeholder="blur"
+				sizes="100vw"
 				style={{
 					objectFit: 'cover',
 					objectPosition: 'center',
