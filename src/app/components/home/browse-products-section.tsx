@@ -39,6 +39,7 @@ function FeaturedProduct({ img, title, alt }: FeaturedProductProps) {
 				placeholder="blur"
 				loading="lazy"
 				fill
+				sizes="(max-width: 850px) 50vw, (max-width: 1190px) 33vw, 25vw"
 				style={{
 					objectFit: 'fill',
 					objectPosition: 'center',
