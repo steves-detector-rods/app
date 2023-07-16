@@ -116,8 +116,8 @@ function TabSectionSubHeader({ children }: PropsWithChildren<{}>) {
 
 export function BrowseProductsSection() {
 	return (
-		<DivSectionWrapper className="mt-4 sm:mt-8 mb-8 sm:mb-16">
-			<PageHeader>Browse Our Products</PageHeader>
+		<DivSectionWrapper className="sm:mt-4 mb-8 sm:mb-16">
+			<PageHeader className="!mb-2">Browse Our Products</PageHeader>
 			<Tabs aria-label="Browse Our Products" defaultSelectedKey="All" orientation="vertical">
 				<Item key="All" title="All">
 					<div>
