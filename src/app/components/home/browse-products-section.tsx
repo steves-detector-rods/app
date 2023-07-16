@@ -91,7 +91,7 @@ const featuredProducts: Record<Readonly<Exclude<TabOpts, 'All'>>, Readonly<Featu
 		},
 	],
 	Accessories: [
-		{ img: counterWeight, alt: 'Counter weight for shafts', title: 'Counter Weight' },
+		{ img: counterWeight, alt: 'Counterweight for shafts', title: 'Counterweight' },
 		{ img: armCuff, alt: 'Arm Cuffs fit for Steves Detector Rods Shafts', title: 'Arm Cuffs' },
 		{ img: camLock, alt: 'Replacement parts for any SDR Rods', title: 'Replacement Parts' },
 		{ img: apparel, alt: "Official Steve's Detector Rods Apparel", title: 'Apparel' },
@@ -122,7 +122,8 @@ export function BrowseProductsSection() {
 				<Item key="All" title="All">
 					<div>
 						<TabSectionSubHeader>
-							Browse our expansive collection of high quality carbon-fiber metal detector rod and sand scoop add ons
+							Browse our expansive collection of high-quality carbon-fiber metal detector shafts, sand scoop handles,
+							and related accessories.
 						</TabSectionSubHeader>
 						<ProductGrid>
 							{Object.values(featuredProducts)
@@ -136,7 +137,7 @@ export function BrowseProductsSection() {
 				<Item key="CompleteUpperShafts" title="Shafts">
 					<div className="flex flex-col">
 						<TabSectionSubHeader>
-							Select your detector brand from our list of available options below
+							Select your detector brand from our list of available options below.
 						</TabSectionSubHeader>
 						<ProductGrid>
 							{featuredProducts.Shafts.map((productProps) => (
@@ -157,7 +158,7 @@ export function BrowseProductsSection() {
 				</Item>
 				<Item key="SandScoopHandles" title="Sand Scoop Handles">
 					<div className="flex flex-col">
-						<TabSectionSubHeader>Select your scoop brand from our list of available options below</TabSectionSubHeader>
+						<TabSectionSubHeader>Select your scoop brand from our list of available options below.</TabSectionSubHeader>
 						<ProductGrid>
 							{featuredProducts.Scoops.map((productProps) => (
 								<FeaturedProduct key={productProps.title} {...productProps} />

@@ -70,7 +70,8 @@ function ContactSection() {
 					</h2>
 					<div className="flex flex-col items-center">
 						<p className="text-white text-2xl mt-4">
-							I&apos;m the founder of <i>Steve&apos;s Detector Rods</i>, and I&apos;d love to answer your questions!
+							I&apos;m the founder of <i>Steve&apos;s Detector Rods</i>, and I would be happy to answer any questions
+							you may have!
 						</p>
 						<CtaButtonLink
 							href="mailto:steve@stevesdetectorrods.com"
