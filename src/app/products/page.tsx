@@ -10,7 +10,7 @@ export default function Products() {
 	const allBrands = Object.entries(brands).map(([key, brand]) => ({ value: key, text: brand.text, type: brand.type }));
 
 	return (
-		<MainSectionWrapper>
+		<MainSectionWrapper className="mb-4">
 			<PageHeader>Products</PageHeader>
 			<div className="flex w-full h-full space-x-4">
 				<div className="shrink-0 min-w-[12rem]">

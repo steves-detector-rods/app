@@ -6,7 +6,7 @@ import { MainSectionWrapper } from '../components/runway/section-wrapper';
 
 export default function Faq() {
 	return (
-		<MainSectionWrapper>
+		<MainSectionWrapper className="mb-4">
 			<PageHeader>FAQ</PageHeader>
 			<div className="text-gray-500 text-lg">
 				<p>

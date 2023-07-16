@@ -6,7 +6,7 @@ import { MainSectionWrapper } from '../components/runway/section-wrapper';
 
 export default function About() {
 	return (
-		<MainSectionWrapper>
+		<MainSectionWrapper className="mb-4">
 			<PageHeader>About Us</PageHeader>
 			<div className="mt-1 sm:mt-2">
 				<div className="space-y-2">
