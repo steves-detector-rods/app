@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { useTab, useTabList, useTabPanel, AriaTabListProps, AriaTabProps, AriaTabPanelProps } from '@react-aria/tabs';
 import { Orientation, Node } from '@react-types/shared';
+import { motion } from 'framer-motion';
 import { TabListState, useTabListState } from 'react-stately';
 import { clsx } from 'src/app/utils/clsx';
 
@@ -15,7 +16,7 @@ function Tab({
 }) {
 	const { key, rendered } = item;
 	const tabRef = useRef<HTMLDivElement>(null);
-	const { tabProps, isSelected } = useTab({ key }, { ...state }, tabRef);
+	const { tabProps, isSelected } = useTab({ key }, state, tabRef);
 
 	return (
 		<div
@@ -38,16 +39,15 @@ function Tab({
 			ref={tabRef}
 		>
 			<div className="px-3 py-1.5">{rendered}</div>
-			{/*
-			 * When you inevitably come back and want to fix this, using layoutId and motion.div is currently broken in the
-			 * Next 13 app directory. The issue below is probably what will fix this. Test it on:
-			 * 1. Chrome
-			 * 2. Chrome on a small viewport browser
-			 * 3. Safari (all sizes)
-			 *
-			 * https://github.com/vercel/next.js/issues/49279
-			 */}
-			<div className={clsx('bg-red-800 h-[2px] w-full', isSelected ? 'visible' : 'invisible')} />
+			{isSelected ? (
+				<motion.div
+					layoutId="active-tab"
+					className={clsx('bg-red-800 h-[2px] w-full')}
+					transition={{
+						duration: 0.15,
+					}}
+				/>
+			) : null}
 		</div>
 	);
 }
@@ -80,7 +80,7 @@ export function Tabs(props: AriaTabListProps<AriaTabProps>) {
 	const { orientation = 'horizontal' } = props;
 
 	return (
-		<div className={clsx('flex w-full', orientationTabListClasses[orientation])}>
+		<div className={clsx('tabs flex w-full', orientationTabListClasses[orientation])}>
 			<div
 				className={clsx(
 					'flex justify-start items-center border-b-[1px] border-gray-300 space-x-2 overflow-x-auto',
